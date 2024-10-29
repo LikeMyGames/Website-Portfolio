@@ -109,29 +109,103 @@
 //     // );
 // }
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import NavigationIcon from '@mui/icons-material/Navigation';
+import { Typography, Box } from '@mui/material';
 
-export default function FloatingActionButtons() {
-  return (
-    <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
-      <Fab color="secondary" aria-label="edit">
-        <EditIcon />
-      </Fab>
-      <Fab variant="extended">
-        <NavigationIcon sx={{ mr: 1 }} />
-        Navigate
-      </Fab>
-      <Fab disabled aria-label="like">
-        <FavoriteIcon />
-      </Fab>
+export default function HomePage(){
+  return(
+    // <div>
+    //   <Image 
+    //     className={styles["header"]}
+    //     src={HomeBack}
+    //     width={1920}
+    //     height={1080}
+    //     alt="Home Page Background Image"
+    //   />
+    // </div>
+    <Box
+    	sx={{
+    		width: "100vw",
+			height: "100vh",
+    		// backgroundColor: "#0FA958"
+    	}}
+    >
+    	
+    	<Box
+        	sx={{
+				position: "relative",
+				left: "10vw",
+				top: "10vh",
+        		width: "60vw",
+        		height: "15vw",
+				background: "red",
+				display: "grid",
+				gridTemplateColumns: "1fr",
+				gridTemplateRows: "1fr",
+				justifyContent: "center",
+				alignItems: "center",
+				justifyItems: "center",
+
+    		}}
+    	>
+			<Box
+        		component={"svg"}
+        		width="943" height="291" viewBox="0 0 943 291" fill="none" xmlns="http://www.w3.org/2000/svg"
+        		sx={{
+					gridColumn: "1 / 2",
+					gridRow: "1 / 2",
+        			position: "relative",
+        			width: "60vw",
+					zIndex: "1"
+        		}}
+    		>
+        		<Box
+        			component={"path"}
+        			d="M20.5 38.5H45.5V63.5H20.5V38.5ZM863.5 38.5H888.5V63.5H863.5V38.5ZM863.5 212.5H888.5V237.5H863.5V212.5ZM20.5 212.5H45.5V237.5H20.5V212.5Z"
+					fill="white"
+					stroke="black"
+					strokeWidth="5"
+        		/>
+    		</Box>
+        	<Box
+        		sx={{
+					gridColumn: "1 / 2",
+					gridRow: "1 / 2",
+    				backgroundColor: "white",
+        			width: "53.75vw",
+        			height: "11.2vw",
+					position: "relative",
+					left: "-1.125vw",
+					top: "-0.5vw",
+					zIndex: "0",
+					borderWidth: "5px",
+					borderColor: "black",
+					outlineColor: "black",
+					outlineWidth: "5px"
+        		}}
+        	>
+        		{/* <Typography
+    				variant='h1'
+        	    	sx={{
+        	    		fontFamily: "var(--font-main)",
+        	    		paddingY: "1vh",
+        	    		paddingX: "7.5vh",
+						fontSize: ""
+        	    	}}
+        		>
+        	    	Dominic Camill
+        		</Typography> */}
+        	</Box> 
+    		{/* <Box 
+    			sx={{
+        			height: "5vh",
+        			width: "70vw",
+        			backgroundColor: "black",
+        			position: "relative",
+        			left: "5vh",
+        			top: "5vh",
+    			}}
+    		/>   */}
+    	</Box>
     </Box>
   );
 }
