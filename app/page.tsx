@@ -115,13 +115,13 @@ import * as React from 'react';
 import { Typography, Box, Button } from '@mui/material';
 import Image from 'next/image';
 import HomePageArrow from "@/static/vectors/HomePage/LearnMoreArrow.svg";
-import { alertService } from '../components/AlertComponent';
+import { alertService, AlertProps } from '../components/AlertComponent';
 import ReactDOM from 'react-dom';
 
 export default function HomePage(){
 
-	const alert = (message: string) => {
-		alertService.showAlert(message);
+	const alert = (message: string, props: AlertProps) => {
+		alertService.showAlert(message, props);
 	};
 
 	return(
@@ -261,8 +261,8 @@ export default function HomePage(){
 				>
 					<Box
 						sx={{
-							width: "5vw",
-							height: "5vw",
+							width: "5%",
+							height: "5%",
 							gridColumn: "1 / 2",
 							gridRow: "1 / 2",
 						}}
@@ -303,7 +303,7 @@ export default function HomePage(){
 							}}
 							disableRipple
 							onClick={() => {
-								alert("Button clicked");
+								alert("Button clicked", {severity: "warning"});
 							}}
 						>
 							<Typography

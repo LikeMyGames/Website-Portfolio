@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Snackbar, Alert } from '@mui/material';
 
-interface AlertProps {
+export interface AlertProps {
 	severity: string;
 	
 
 }
 
-const AlertComponent: React.FC<{ message: string; onClose: () => void; props: object  }> = ({ message, onClose, props }) => {
+const AlertComponent: React.FC<{ message: string; onClose: () => void; props: AlertProps  }> = ({ message, onClose, props }) => {
 	const [open, setOpen] = useState(true);
 
 	useEffect(() => {
-    	const timer = setTimeout(() => setOpen(false), 3000); // Automatically hide after 3 seconds
+    	const timer = setTimeout(() => setOpen(false), 1500); // Automatically hide after 3 seconds
     	return () => clearTimeout(timer);
 	}, []);
 
@@ -23,7 +23,7 @@ const AlertComponent: React.FC<{ message: string; onClose: () => void; props: ob
     		onClose={onClose}
     		anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
     	>
-    	<Alert onClose={onClose} severity={props.severity == undefined ? } sx={{ width: '100%' }}>
+    	<Alert onClose={onClose} severity={"info"} sx={{ width: '100%' }}>
     	    {message}
 		</Alert>
     	</Snackbar>
@@ -31,7 +31,7 @@ const AlertComponent: React.FC<{ message: string; onClose: () => void; props: ob
 };
 
 export const alertService = {
-	showAlert(message: string) {
+	showAlert(message: string, props: AlertProps) {
     	const container = document.createElement('div');
     	document.body.appendChild(container);
 
@@ -40,6 +40,8 @@ export const alertService = {
     		container.remove();
     	};
 
-    	ReactDOM.render(<AlertComponent message={message} onClose={handleClose} props={}/>, container);
+    	ReactDOM.render(<AlertComponent message={message} onClose={handleClose} props={{
+			severity: props.severity
+		}}/>, container);
 	},
 };
