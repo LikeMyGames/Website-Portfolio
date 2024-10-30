@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georama:ital,wdth,wght@0,62.5..150,100..900;1,62.5..150,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,-10..0,25..151,100..1000,-200..150,27..175,323..603,25..135,649..854,-305..-98,560..788,416..570,528..760&display=swap');
 
 :root {
   --max-width: 1100px;
@@ -7,8 +9,9 @@
   --font-mono: "Roboto Mono", ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --font-main: "Expletus Sans", "Helvetica", "sans serif";
-  --foreground-rgb: 255, 255, 255;
+  /* --font-main: "Expletus Sans", "Helvetica", "sans serif"; */
+  --font-main: "Georama";
+  --foreground-rgb: 255, 255, 58;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 
@@ -102,11 +105,12 @@ body {
   overflow: none;
   overflow-x: hidden;
   color: #0FA958;
+  background-color: #0FA958;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))

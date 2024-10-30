@@ -108,104 +108,221 @@
 //     // 	</main>
 //     // );
 // }
+
+'use client'
+
 import * as React from 'react';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
+import Image from 'next/image';
+import HomePageArrow from "@/static/vectors/HomePage/LearnMoreArrow.svg";
+import { alertService } from '../components/AlertComponent';
+import ReactDOM from 'react-dom';
 
 export default function HomePage(){
-  return(
-    // <div>
-    //   <Image 
-    //     className={styles["header"]}
-    //     src={HomeBack}
-    //     width={1920}
-    //     height={1080}
-    //     alt="Home Page Background Image"
-    //   />
-    // </div>
-    <Box
-    	sx={{
-    		width: "100vw",
-			height: "100vh",
-    		// backgroundColor: "#0FA958"
-    	}}
-    >
-    	
-    	<Box
-        	sx={{
-				position: "relative",
-				left: "10vw",
-				top: "10vh",
-        		width: "60vw",
-        		height: "15vw",
-				background: "red",
-				display: "grid",
-				gridTemplateColumns: "1fr",
-				gridTemplateRows: "1fr",
-				justifyContent: "center",
-				alignItems: "center",
-				justifyItems: "center",
 
-    		}}
-    	>
-			<Box
-        		component={"svg"}
-        		width="943" height="291" viewBox="0 0 943 291" fill="none" xmlns="http://www.w3.org/2000/svg"
-        		sx={{
-					gridColumn: "1 / 2",
-					gridRow: "1 / 2",
-        			position: "relative",
-        			width: "60vw",
-					zIndex: "1"
-        		}}
-    		>
-        		<Box
-        			component={"path"}
-        			d="M20.5 38.5H45.5V63.5H20.5V38.5ZM863.5 38.5H888.5V63.5H863.5V38.5ZM863.5 212.5H888.5V237.5H863.5V212.5ZM20.5 212.5H45.5V237.5H20.5V212.5Z"
-					fill="white"
-					stroke="black"
-					strokeWidth="5"
-        		/>
-    		</Box>
-        	<Box
-        		sx={{
-					gridColumn: "1 / 2",
-					gridRow: "1 / 2",
-    				backgroundColor: "white",
-        			width: "53.75vw",
-        			height: "11.2vw",
-					position: "relative",
-					left: "-1.125vw",
-					top: "-0.5vw",
-					zIndex: "0",
-					borderWidth: "5px",
-					borderColor: "black",
-					outlineColor: "black",
-					outlineWidth: "5px"
-        		}}
-        	>
-        		{/* <Typography
-    				variant='h1'
-        	    	sx={{
-        	    		fontFamily: "var(--font-main)",
-        	    		paddingY: "1vh",
-        	    		paddingX: "7.5vh",
-						fontSize: ""
-        	    	}}
-        		>
-        	    	Dominic Camill
-        		</Typography> */}
-        	</Box> 
-    		{/* <Box 
+	const alert = (message: string) => {
+		alertService.showAlert(message);
+	};
+
+	return(
+		<Box
+			sx={{
+				backgroundColor: "#0FA958",
+				width: "100vw",
+				height: "100vh",
+				overflowX: "hidden",
+				overflowY: "auto",
+			}}
+		>
+    		<Box
     			sx={{
-        			height: "5vh",
-        			width: "70vw",
-        			backgroundColor: "black",
-        			position: "relative",
-        			left: "5vh",
-        			top: "5vh",
+					aspectRatio: "16 / 9",
+    				width: "100vw",
+    				backgroundColor: "#0FA958",
+					backgroundImage: 'url("static/vectors/HomePage/HomePage.png")',
+					backgroundSize: "100vw",
+					backgroundRepeat: "no-repeat",
+					display: "grid",
+					gridTemplateRows: "1fr 1fr 1fr",
     			}}
-    		/>   */}
-    	</Box>
-    </Box>
-  );
+    		>
+    			<Box
+    		    	sx={{
+						gridRow: "2 / 3",
+						position: "relative",
+						left: "10vw",
+						// top: "35vh",
+    		    		width: "60vw",
+    		    		height: "15vw",
+						background: "rgba(0,0,0,0)",
+						display: "grid",
+						gridTemplateColumns: "6.5vw 47vw 6.5vw",
+						gridTemplateRows: "3.75vw 7.5vw 3.75vw",
+						justifyContent: "center",
+						alignItems: "center",
+						justifyItems: "center",
+    				}}
+    			>
+					<Box 
+    					sx={{
+    		    			width: "53.75vw",
+    		    			height: "11.2vw",
+    		    			backgroundColor: "black",
+							gridColumn: "2 / 3",
+							gridRow: "2 / 3",
+    		    			position: "relative",
+							top: "2.5vw",
+							left: "2.5vw"
+    					}}
+    				/>  
+					<Box
+    		    		sx={{
+							gridColumn: "2 / 3",
+							gridRow: "2 / 3",
+    						backgroundColor: "white",
+							border: "0.35vw black solid",
+    		    			width: "53.75vw",
+    		    			height: "11.2vw",
+							position: "relative",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+    		    		}}
+    		    	>
+    		    		<Typography
+    						variant='h1'
+    		    	    	sx={{
+    		    	    		fontFamily: "var(--font-main)",
+								fontVariationSettings: '"wght" 1000',
+								color: "black",
+								fontSize: "7.125vw",
+								textWrap: "nowrap"
+    		    	    	}}
+    		    		>
+    		    	    	Dominic Camill
+    		    		</Typography>
+    		    	</Box> 
+					<Box
+						sx={{
+							border: "0.35vw black solid",
+							backgroundColor: "white",
+							gridColumn: "1 / 2",
+							gridRow: "1 / 2",
+							aspectRatio: "1 / 1",
+							width: "2vw",
+							zIndex: "1"
+						}}
+					/>
+					<Box
+						sx={{
+							border: "0.35vw black solid",
+							backgroundColor: "white",
+							gridColumn: "3 / 4",
+							gridRow: "1 / 2",
+							aspectRatio: "1 / 1",
+							width: "2vw",
+							zIndex: "1"
+						}}
+					/>
+					<Box
+						sx={{
+							border: "0.35vw black solid",
+							backgroundColor: "white",
+							gridColumn: "1 / 2",
+							gridRow: "3 / 4",
+							aspectRatio: "1 / 1",
+							width: "2vw",
+							zIndex: "1"
+						}}
+					/>
+					<Box
+						sx={{
+							border: "0.35vw black solid",
+							backgroundColor: "white",
+							gridColumn: "3 / 4",
+							gridRow: "3 / 4",
+							aspectRatio: "1 / 1",
+							width: "2vw",
+							zIndex: "1"
+						}}
+					/>
+    			</Box>
+				<Box
+					sx={{
+						gridRow: "3 / 4",
+						position: "relative",
+						left: "60vw",
+						width: "20vw",
+						height: "10vw",
+						display: "grid",
+						gridTemplateColumns: "3vw 1fr",
+						gridTemplateRows: "3.5vw 1fr",
+					}}
+				>
+					<Box
+						sx={{
+							width: "5vw",
+							height: "5vw",
+							gridColumn: "1 / 2",
+							gridRow: "1 / 2",
+						}}
+					>
+						<Image 
+							src={HomePageArrow}
+							alt="Learn More Arrow"
+							style={{
+								width: "100%",
+								height: "100%"
+							}}
+						/>
+					</Box>
+					<Box
+						sx={{
+							justifySelf: "center",
+							alignSelf: "center",
+							height: "70%",
+							display: "grid",
+							justifyContent: "center",
+							alignItems: "center",
+							border: "0.35vw black solid",
+							gridRow: "2 / 3",
+							gridColumn: "2 / 3",
+							backgroundColor: "#FF8577",
+						}}
+					>
+						<Button
+							sx={{
+								height: "100%",
+								width: "100%",
+								margin: "0px",
+								fontSize: "100px",
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								marginX: "0%",
+							}}
+							disableRipple
+							onClick={() => {
+								alert("Button clicked");
+							}}
+						>
+							<Typography
+    						variant='h1'
+    		    	    	sx={{
+    		    	    		fontFamily: "var(--font-main)",
+								fontVariationSettings: '"wght" 1000',
+								color: "black",
+								fontSize: "2.25vw",
+								textWrap: "nowrap",
+								textTransform: "none",
+    		    	    	}}
+    		    		>
+    		    	    	Learn more
+    		    		</Typography>
+						</Button>
+					</Box>
+				</Box>
+    		</Box>
+		</Box>
+	);
 }
